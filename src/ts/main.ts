@@ -17,13 +17,16 @@ type Question = {
 }
 
 class ApplicationState {
+    data: Data
     quiz: State<Quiz|null>
     currentQuestionIndex: State<number>
     answers: State<string[]>
     currentAnswerIsCorrect: State<boolean>
     finished: State<boolean>
 
-    constructor(){
+    constructor(data: Data){
+        this.data = data;
+
         this.quiz = van.state(null);
         this.answers = van.state([]);
         this.currentQuestionIndex = van.state(0);
@@ -49,11 +52,20 @@ class ApplicationState {
         this.currentQuestionIndex.val = 0;
         this.answers.val = [];
     }
+
+    selectQuiz(title:string){
+        const quiz = this.data.quizzes.find((q)=>q.title === title);
+        if (!quiz) {
+            console.error(`can't find quiz with title "${title}"`);
+            return;
+        }
+        this.quiz.val = quiz;
+    }
 }
 
 (async ()=>{
     const response = await fetch("/data.json");
     const data: Data = await response.json();
-    const appState = new ApplicationState();
+    const appState = new ApplicationState(data);
 })()
 
