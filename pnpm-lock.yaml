@@ -1,0 +1,22 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      vanjs-core:
+        specifier: ^1.5.3
+        version: 1.5.3
+
+packages:
+
+  vanjs-core@1.5.3:
+    resolution: {integrity: sha512-NDt++52tE8rA7rcThaFtIJ7C3pEIuB51giOmE9o5dA9Cw3iv+a0tRIVVYP1PGLItXBbEL0wxDTa2VRjjuKIPlw==}
+
+snapshots:
+
+  vanjs-core@1.5.3: {}
