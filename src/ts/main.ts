@@ -71,6 +71,14 @@ class ApplicationState {
         }
         this.quiz.val = quiz;
     }
+
+    selectAnswer(ans:string){
+        this.answers.val = [...this.answers.val, ans];
+    }
+
+    nextQuestion(){
+        this.currentQuestionIndex.val+=1;
+    }
 }
 
 (async () => {
