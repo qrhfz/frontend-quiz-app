@@ -1,4 +1,4 @@
-import van, {State} from "vanjs-core";
+import van, { State } from "vanjs-core";
 
 type Data = {
     quizzes: Quiz[]
@@ -18,19 +18,29 @@ type Question = {
 
 class ApplicationState {
     data: Data
-    quiz: State<Quiz|null>
+    quiz: State<Quiz | null>
     currentQuestionIndex: State<number>
     answers: State<string[]>
+    hasSubmittedCurrentAnswer: State<boolean>
     currentAnswerIsCorrect: State<boolean>
     finished: State<boolean>
 
-    constructor(data: Data){
+    constructor(data: Data) {
         this.data = data;
 
         this.quiz = van.state(null);
         this.answers = van.state([]);
         this.currentQuestionIndex = van.state(0);
-        this.currentAnswerIsCorrect = van.derive(()=>{
+
+        this.hasSubmittedCurrentAnswer = van.derive(() => {
+            if (this.answers.val.length - 1 === this.currentQuestionIndex.val) {
+                return true;
+            }
+
+            return false;
+        })
+
+        this.currentAnswerIsCorrect = van.derive(() => {
             const currentAnswer = this.answers.val[this.currentQuestionIndex.val];
             const correctAnswer = this.quiz.val?.questions[this.currentQuestionIndex.val].answer;
             if (correctAnswer === undefined) {
@@ -44,17 +54,17 @@ class ApplicationState {
             return false
         });
 
-        this.finished = van.derive(()=>this.answers.val.length === this.quiz.val?.questions.length);
+        this.finished = van.derive(() => this.answers.val.length === this.quiz.val?.questions.length);
     }
 
-    reset(){
+    reset() {
         this.quiz.val = null;
         this.currentQuestionIndex.val = 0;
         this.answers.val = [];
     }
 
-    selectQuiz(title:string){
-        const quiz = this.data.quizzes.find((q)=>q.title === title);
+    selectQuiz(title: string) {
+        const quiz = this.data.quizzes.find((q) => q.title === title);
         if (!quiz) {
             console.error(`can't find quiz with title "${title}"`);
             return;
@@ -63,7 +73,7 @@ class ApplicationState {
     }
 }
 
-(async ()=>{
+(async () => {
     const response = await fetch("/data.json");
     const data: Data = await response.json();
     const appState = new ApplicationState(data);
