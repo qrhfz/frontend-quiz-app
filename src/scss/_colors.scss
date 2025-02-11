@@ -1,0 +1,23 @@
+:root{
+    --clr-neutral-0: white;
+    --clr-neutral-50: hsl(220, 38%, 97%);
+    --clr-neutral-300: hsl(216, 47%, 78%);
+    --clr-neutral-600: hsl(219, 13%, 44%);
+    --clr-neutral-800: hsl(215, 27%, 32%);
+    --clr-neutral-900: hsl(216, 25%, 25%);
+
+    --clr-primary: hsl(277,91,56);
+    --clr-success: hsl(151,70,50);
+    --clr-danger: hsl(0,82,63);
+}
+
+$neutral-0: var(--clr-neutral-0);
+$neutral-50: var(--clr-neutral-50);
+$neutral-300: var(--clr-neutral-300);
+$neutral-600: var(--clr-neutral-600);
+$neutral-800: var(--clr-neutral-800);
+$neutral-900: var(--clr-neutral-900);
+
+$primary: var(--clr-primary);
+$success: var(--clr-success);
+$danger: var(--clr-danger);
