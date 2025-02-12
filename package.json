@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "esbuild src/ts/main.ts --watch --bundle --sourcemap --outdir=dist"
+    "dev": "concurrently \"pnpm dev:ts\" \"pnpm dev:scss\"",
+    "dev:ts": "esbuild src/ts/main.ts --watch --bundle --sourcemap --outdir=dist",
+    "dev:scss": "sass -w src/scss/style.scss dist/style.css"
   },
   "keywords": [],
   "author": "",
