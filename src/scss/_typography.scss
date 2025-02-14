@@ -1,59 +1,59 @@
 @font-face {
     font-family: 'Rubik';
-    src: url('assets/fonts/Rubik-VariableFont_wght.ttf');
+    src: url('/assets/fonts/Rubik-VariableFont_wght.ttf');
 }
 
 @font-face {
     font-family: 'Rubik';
-    src: url('assets/fonts/Rubik-Italic-VariableFont_wght.ttf');
+    src: url('/assets/fonts/Rubik-Italic-VariableFont_wght.ttf');
     font-style: italic;
 }
 
-body{
-    font-family: 'Rubrik', sans-serif;
+body {
+    font-family: 'Rubik', sans-serif;
 }
 
-.txt-display{
+.txt-display {
     font-size: 9rem;
     font-weight: 500;
     line-height: 100%;
 }
 
-.txt-hl-b{
+.txt-hl-b {
     font-size: 4rem;
     font-weight: 500;
     line-height: 100%;
 }
 
-.txt-hl{
+.txt-hl {
     font-size: 4rem;
     font-weight: 400;
     line-height: 100%;
 }
 
-.txt-hm{
+.txt-hm {
     font-size: 2.25rem;
     font-weight: 500;
     line-height: 100%;
 }
 
-@mixin hs{
+@mixin hs {
     font-size: 1.75rem;
     font-weight: 500;
     line-height: 100%;
 }
 
-.txt-hs{
+.txt-hs {
     @include hs;
 }
 
-.txt-bm{
+.txt-bm {
     font-size: 0.75rem;
     font-weight: 400;
     line-height: 150%;
 }
 
-.txt-bs{
+.txt-bs {
     font-size: 0.75rem;
     font-weight: 400;
     line-height: 150%;
