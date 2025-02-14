@@ -1,18 +1,19 @@
 import van from "vanjs-core";
-const {div, input} = van.tags
+const { div, input } = van.tags
 
 
-export default function Switch(props?:any){
-    const checkbox = input({type:"checkbox",...props});
+export function Switch(props?: any) {
+    const checkbox = input({ type: "checkbox", ...props });
 
-    return div({class:"switch"},
+    return div({ class: "switch" },
         checkbox,
         div({
-            class:"switch-look",
-            onclick: ()=>{
+            class: "switch-look",
+            onclick: () => {
                 checkbox.click();
-            }},
-            div({class:"switch-circle"})
+            }
+        },
+            div({ class: "switch-circle" })
         )
     )
 }

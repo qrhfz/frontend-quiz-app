@@ -1,5 +1,5 @@
 import van from "vanjs-core";
-import Switch from "./Switch";
+import { Switch } from "./Switch";
 import { MultipleChoice } from "./MultipleChoice"
 
 const { div, span, button } = van.tags
