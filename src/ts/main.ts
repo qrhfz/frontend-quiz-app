@@ -1,4 +1,5 @@
 import van, { State } from "vanjs-core";
+import App from "./App"
 
 type Data = {
     quizzes: Quiz[]
@@ -72,12 +73,12 @@ class ApplicationState {
         this.quiz.val = quiz;
     }
 
-    selectAnswer(ans:string){
+    selectAnswer(ans: string) {
         this.answers.val = [...this.answers.val, ans];
     }
 
-    nextQuestion(){
-        this.currentQuestionIndex.val+=1;
+    nextQuestion() {
+        this.currentQuestionIndex.val += 1;
     }
 }
 
@@ -87,3 +88,7 @@ class ApplicationState {
     const appState = new ApplicationState(data);
 })()
 
+const appWrapper = document.querySelector("div#app");
+if (appWrapper) {
+    van.add(appWrapper, App())
+}
