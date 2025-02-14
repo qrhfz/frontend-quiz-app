@@ -50,11 +50,20 @@
 
     }
 
-    input[type="checkbox"]{
+    input[type="checkbox"] {
         display: none;
     }
 
     input[type="checkbox"]:checked+div.switch-look>div.switch-circle {
         left: 20px;
     }
+}
+
+label.choice {
+    display: block;
+    padding-block: 18px;
+    padding-inline: 20px;
+
+    @include typography.hs;
+    color: colors.$neutral-900;
 }
