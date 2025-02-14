@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 :root{
     --clr-neutral-0: white;
     --clr-neutral-50: hsl(220, 38%, 97%);
@@ -7,6 +9,9 @@
     --clr-neutral-900: hsl(216, 25%, 25%);
 
     --clr-primary: hsl(277,91%,56%);
+    --clr-primary-light: hsl(276.4706, 91%, 78%);
+    --clr-primary-lighter: hsl(277.5, 100%, 95%);
+
     --clr-success: hsl(151,70%,50%);
     --clr-danger: hsl(0,82%,63%);
 }
@@ -19,5 +24,6 @@ $neutral-800: var(--clr-neutral-800);
 $neutral-900: var(--clr-neutral-900);
 
 $primary: var(--clr-primary);
+$primary-light: var(--clr-primary-light);
 $success: var(--clr-success);
 $danger: var(--clr-danger);
