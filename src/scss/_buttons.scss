@@ -1,7 +1,7 @@
 @use "typography";
 @use "colors";
 
-.btn-primary{
+.btn-primary {
     @include typography.hs;
     padding: 32px;
     border: none;
@@ -11,7 +11,50 @@
     width: 100%;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
         background-color: colors.$primary-light;
+    }
+}
+
+@keyframes switchAnim {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 20px;
+    }
+}
+
+.switch {
+    div.switch-look {
+        padding: 4px;
+        background-color: colors.$primary;
+        width: 48px;
+        height: 28px;
+        border-radius: 9999px;
+
+
+
+        div.switch-circle {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            background-color: colors.$neutral-0;
+            border-radius: 9999px;
+
+            transition: left 0.3s;
+            left: 0;
+        }
+
+
+    }
+
+    input[type="checkbox"]{
+        display: none;
+    }
+
+    input[type="checkbox"]:checked+div.switch-look>div.switch-circle {
+        left: 20px;
     }
 }
