@@ -37,10 +37,14 @@ body{
     line-height: 100%;
 }
 
-.txt-hs{
+@mixin hs{
     font-size: 1.75rem;
     font-weight: 500;
     line-height: 100%;
+}
+
+.txt-hs{
+    @include hs;
 }
 
 .txt-bm{
