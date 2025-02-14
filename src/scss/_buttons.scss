@@ -1,0 +1,12 @@
+@use "typography";
+@use "colors";
+
+.btn-primary{
+    @include typography.hs;
+    padding: 32px;
+    border: none;
+    color: white;
+    background-color: colors.$primary;
+    border-radius: 24px;
+    width: 100%;
+}
