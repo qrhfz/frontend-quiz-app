@@ -1,5 +1,6 @@
 @use "typography";
 @use "colors";
+@use "sass:color";
 
 .btn-primary {
     @include typography.hs;
@@ -60,15 +61,21 @@
 }
 
 .multiple-choice {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
     label.multiple-choice-entry {
         display: flex;
         align-items: center;
         gap: 32px;
         padding-block: 18px;
         padding-inline: 20px;
+        filter: drop-shadow(0 16px 40px #{color.change(#8FA0C1, $alpha:14%)});
 
         @include typography.hs;
         color: colors.$neutral-900;
+        background-color: colors.$neutral-0;
         border: 3px solid transparent;
         border-radius: 24px;
 
@@ -99,11 +106,31 @@
                 color: colors.$neutral-0;
                 background-color: colors.$primary;
             }
+
+            &.correct {
+                border-color: colors.$success;
+
+                div.multiple-choice-entry-letter {
+                    color: colors.$neutral-0;
+                    background-color: colors.$success;
+                }
+            }
+
+            &.incorrect {
+                border-color: colors.$danger;
+
+                div.multiple-choice-entry-letter {
+                    color: colors.$neutral-0;
+                    background-color: colors.$danger;
+                }
+            }
         }
 
         input[type="radio"] {
             display: none;
         }
+
+
 
     }
 

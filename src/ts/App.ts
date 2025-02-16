@@ -25,8 +25,31 @@ export default function App() {
                 id: "lang-css",
                 value: "css",
             },
-                div({ class: "multiple-choice-entry-letter" }, "A"),
+                div({ class: "multiple-choice-entry-letter" }, "B"),
                 div("CSS")
+            )
+        ),
+        MultipleChoice({
+            name: "ab",
+            chosen: van.state(null)
+        },
+            MultipleChoiceEntry({
+                name: "iscorrect",
+                id: "iscorrect-correct",
+                value: "correct",
+                correct: true
+            },
+                div({ class: "multiple-choice-entry-letter" }, "A"),
+                div("correct")
+            ),
+            MultipleChoiceEntry({
+                name: "iscorrect",
+                id: "iscorrect-incorrect",
+                value: "incorrect",
+                correct: false,
+            },
+                div({ class: "multiple-choice-entry-letter" }, "B"),
+                div("incorrect")
             )
         )
     )

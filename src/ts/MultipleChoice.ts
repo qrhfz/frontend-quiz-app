@@ -29,19 +29,28 @@ export function MultipleChoiceEntry(
         id: string,
         name: string
         value: string,
+        correct?: boolean,
     },
     ...children: HTMLElement[]
 ) {
-
+    const { id, name, value, correct } = params;
     const radio = input({
-        id: params.id,
+        id: id,
         type: "radio",
-        name: params.name,
-        value: params.value
+        name: name,
+        value: value
     });
+
+    const labelClasses = ["multiple-choice-entry"]
+    if (correct) {
+        labelClasses.push("correct");
+    } else if (correct === false) {
+        labelClasses.push("incorrect");
+    }
+
     return label({
-        for: `#${params.id}`,
-        class: "multiple-choice-entry",
+        for: `#${id}`,
+        class: labelClasses.join(" "),
         onclick: () => {
             radio.checked = true;
         }
