@@ -1,19 +1,20 @@
-import van from "vanjs-core";
+import van, {State} from "vanjs-core";
 const { div, input, label } = van.tags
 
 
 type MultipleChoiceEntryProps = {
     id: string,
     value: string,
-    child: HTMLElement
+    child: HTMLElement,
 }
 
 export function MultipleChoice(params: {
     name: string,
+    chosen: State<string|null>
     entries: MultipleChoiceEntryProps[],
-    onChange: (v: string) => void
 }) {
     const el = div({
+        class:"multiple-choice",
         onchange: (ev) => {
             const input = ev.target;
             if (
@@ -22,7 +23,7 @@ export function MultipleChoice(params: {
                 input.name === params.name &&
                 input.checked
             ) {
-                params.onChange(input.value);
+                params.chosen.val = input.value
             }
         }
     },
@@ -36,16 +37,21 @@ export function MultipleChoice(params: {
 function MultipleChoiceEntry(
     params: MultipleChoiceEntryProps & { name: string }
 ) {
+
+    const radio = input({
+        id: params.id,
+        type: "radio",
+        name: params.name,
+        value: params.value
+    });
     return label({
         for: `#${params.id}`,
-        class: "choice"
+        class: "multiple-choice-entry",
+        onclick: ()=>{
+            radio.checked = true;
+        }
     },
-        input({
-            id: params.id,
-            type: "radio",
-            name: params.name,
-            value: params.value
-        }),
+        radio,
         params.child
     )
 }

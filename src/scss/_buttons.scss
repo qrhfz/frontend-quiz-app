@@ -59,11 +59,22 @@
     }
 }
 
-label.choice {
-    display: block;
-    padding-block: 18px;
-    padding-inline: 20px;
+.multiple-choice{
+    label.multiple-choice-entry {
+        display: block;
+        padding-block: 18px;
+        padding-inline: 20px;
+    
+        @include typography.hs;
+        color: colors.$neutral-900;
 
-    @include typography.hs;
-    color: colors.$neutral-900;
+        &:has(input[type="radio"]:checked){
+            border: 2px solid red;
+        }
+        
+        input[type="radio"]{
+            display: none;
+        }
+    }
+
 }

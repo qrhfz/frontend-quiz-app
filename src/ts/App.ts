@@ -22,9 +22,7 @@ export default function App() {
                     child: span("CSS")
                 },
             ],
-            onChange: (v) => {
-                console.log(v)
-            }
+            chosen: van.state(null)
         })
     )
 }
