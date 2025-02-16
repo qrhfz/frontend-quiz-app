@@ -1,12 +1,12 @@
-import van, {State} from "vanjs-core";
+import van, { State } from "vanjs-core";
 const { div, input, label } = van.tags
 
 export function MultipleChoice(params: {
     name: string,
-    chosen: State<string|null>
-}, ...entries:HTMLLabelElement[]) {
+    chosen: State<string | null>
+}, ...entries: HTMLLabelElement[]) {
     const el = div({
-        class:"multiple-choice",
+        class: "multiple-choice",
         onchange: (ev) => {
             const input = ev.target;
             if (
@@ -29,7 +29,7 @@ export function MultipleChoiceEntry(
         id: string,
         name: string
         value: string,
-    }, 
+    },
     ...children: HTMLElement[]
 ) {
 
@@ -42,11 +42,11 @@ export function MultipleChoiceEntry(
     return label({
         for: `#${params.id}`,
         class: "multiple-choice-entry",
-        onclick: ()=>{
+        onclick: () => {
             radio.checked = true;
         }
     },
         radio,
-    ...children
+        ...children
     )
 }
