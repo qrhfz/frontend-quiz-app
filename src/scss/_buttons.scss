@@ -59,22 +59,52 @@
     }
 }
 
-.multiple-choice{
+.multiple-choice {
     label.multiple-choice-entry {
-        display: block;
+        display: flex;
+        align-items: center;
+        gap: 32px;
         padding-block: 18px;
         padding-inline: 20px;
-    
+
         @include typography.hs;
         color: colors.$neutral-900;
+        border: 3px solid transparent;
+        border-radius: 24px;
 
-        &:has(input[type="radio"]:checked){
-            border: 2px solid red;
+        div.multiple-choice-entry-letter {
+            width: 56px;
+            height: 56px;
+            color: colors.$neutral-300;
+            background-color: colors.$neutral-50;
+            border-radius: 8px;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+
+            @include typography.hs;
         }
-        
-        input[type="radio"]{
+
+        &:hover {
+            div.multiple-choice-entry-letter {
+                color: colors.$primary;
+                background-color: colors.$primary-lighter;
+            }
+        }
+
+        &:has(input[type="radio"]:checked) {
+            border-color: colors.$primary;
+
+            div.multiple-choice-entry-letter {
+                color: colors.$neutral-0;
+                background-color: colors.$primary;
+            }
+        }
+
+        input[type="radio"] {
             display: none;
         }
+
     }
 
 }

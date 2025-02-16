@@ -1,18 +1,10 @@
 import van, {State} from "vanjs-core";
 const { div, input, label } = van.tags
 
-
-type MultipleChoiceEntryProps = {
-    id: string,
-    value: string,
-    child: HTMLElement,
-}
-
 export function MultipleChoice(params: {
     name: string,
     chosen: State<string|null>
-    entries: MultipleChoiceEntryProps[],
-}) {
+}, ...entries:HTMLLabelElement[]) {
     const el = div({
         class:"multiple-choice",
         onchange: (ev) => {
@@ -27,15 +19,18 @@ export function MultipleChoice(params: {
             }
         }
     },
-        params.entries.map(e => MultipleChoiceEntry(
-            { name: params.name, ...e }
-        ))
+        ...entries
     )
     return el;
 }
 
-function MultipleChoiceEntry(
-    params: MultipleChoiceEntryProps & { name: string }
+export function MultipleChoiceEntry(
+    params: {
+        id: string,
+        name: string
+        value: string,
+    }, 
+    ...children: HTMLElement[]
 ) {
 
     const radio = input({
@@ -52,6 +47,6 @@ function MultipleChoiceEntry(
         }
     },
         radio,
-        params.child
+    ...children
     )
 }
