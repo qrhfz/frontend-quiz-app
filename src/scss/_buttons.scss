@@ -12,9 +12,13 @@
     width: 100%;
     cursor: pointer;
 
-    &:hover,
-    &:focus {
+    &:hover {
         background-color: colors.$primary-light;
+    }
+
+    &:focus {
+        outline: 3px solid colors.$primary;
+        outline-offset: 2px;
     }
 }
 
@@ -46,7 +50,8 @@
     }
 
     &:has(input[type="checkbox"]:focus) div.switch-look {
-        background-color: colors.$primary-light;
+        outline: 3px solid colors.$primary;
+        outline-offset: 2px;
     }
 
     input[type="checkbox"]:checked+div.switch-look>div.switch-circle {
