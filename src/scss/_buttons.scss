@@ -89,7 +89,7 @@
         }
 
         &:hover,
-        &:focus {
+        &:has(input[type="radio"]:focus) {
             div.multiple-choice-entry-letter {
                 color: colors.$primary;
                 background-color: colors.$primary-lighter;
