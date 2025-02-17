@@ -49,20 +49,20 @@ export function MultipleChoiceEntry(
     params: {
         id: string,
         value: string,
-        correct?: boolean,
+        status: "correct" | "incorrect" | "unknown",
     },
     ...children: HTMLElement[]
 ) {
-    const { value, correct } = params;
+    const { value, status } = params;
     const radio = input({
         type: "radio",
         value: value,
     });
 
     const labelClasses = ["multiple-choice-entry"]
-    if (correct) {
+    if (status === "correct") {
         labelClasses.push("correct");
-    } else if (correct === false) {
+    } else if (status === "incorrect") {
         labelClasses.push("incorrect");
     }
 

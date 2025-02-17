@@ -11,11 +11,12 @@ export default function App() {
         MultipleChoice({
             name: "lang",
             chosen: van.state("html"),
-            disabled: true,
+            disabled: false,
         },
             MultipleChoiceEntry({
                 id: "lang-html",
                 value: "html",
+                status: "unknown",
             },
                 div({ class: "multiple-choice-entry-letter" }, "A"),
                 div("HTML")
@@ -23,31 +24,54 @@ export default function App() {
             MultipleChoiceEntry({
                 id: "lang-css",
                 value: "css",
+                status: "unknown",
             },
                 div({ class: "multiple-choice-entry-letter" }, "B"),
                 div("CSS")
             )
         ),
         MultipleChoice({
-            name: "ab",
-            chosen: van.state(null),
-            disabled: false,
+            name: "qwerty",
+            chosen: van.state("b"),
+            disabled: true,
         },
             MultipleChoiceEntry({
-                id: "iscorrect-correct",
-                value: "correct",
-                correct: true
+                id: "qwerty-a",
+                value: "a",
+                status: "correct",
             },
                 div({ class: "multiple-choice-entry-letter" }, "A"),
-                div("correct")
+                div("Correct Answer")
             ),
             MultipleChoiceEntry({
-                id: "iscorrect-incorrect",
-                value: "incorrect",
-                correct: false,
+                id: "qwerty-b",
+                value: "b",
+                status: "incorrect",
             },
                 div({ class: "multiple-choice-entry-letter" }, "B"),
-                div("incorrect")
+                div("Picked Incorrectly")
+            )
+        ),
+        MultipleChoice({
+            name: "asdf",
+            chosen: van.state("a"),
+            disabled: true,
+        },
+            MultipleChoiceEntry({
+                id: "asdf-a",
+                value: "a",
+                status: "correct",
+            },
+                div({ class: "multiple-choice-entry-letter" }, "A"),
+                div("Picked Correcly")
+            ),
+            MultipleChoiceEntry({
+                id: "asdf-b",
+                value: "b",
+                status: "incorrect",
+            },
+                div({ class: "multiple-choice-entry-letter" }, "B"),
+                div("Wrong answer")
             )
         )
     )

@@ -101,6 +101,14 @@
             }
         }
 
+        &.correct::after {
+            margin-inline-start: auto;
+            content: "";
+            background-image: url("/assets/images/icon-correct.svg");
+            width: 40px;
+            height: 40px;
+        }
+
         &:has(input[type="radio"]:checked) {
             border-color: colors.$primary;
 
@@ -120,6 +128,14 @@
 
             &.incorrect {
                 border-color: colors.$danger;
+
+                &::after {
+                    margin-inline-start: auto;
+                    content: "";
+                    background-image: url("/assets/images/icon-incorrect.svg");
+                    width: 40px;
+                    height: 40px;
+                }
 
                 div.multiple-choice-entry-letter {
                     color: colors.$neutral-0;
