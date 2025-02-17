@@ -4,11 +4,13 @@ const { div, input, label } = van.tags
 type MultipleChoiceProps = {
     name: string,
     chosen: State<string | null>,
+    disabled: boolean
 }
 
 export function MultipleChoice({
     name,
-    chosen }: MultipleChoiceProps,
+    chosen,
+    disabled }: MultipleChoiceProps,
     ...entries: HTMLLabelElement[]) {
 
     entries.forEach((e) => {
@@ -17,6 +19,11 @@ export function MultipleChoice({
         if (!(input instanceof HTMLInputElement)) return;
 
         input.name = name;
+        input.disabled = disabled;
+
+        if (input.value === chosen.val) {
+            input.checked = true;
+        }
     })
 
     const el = div({

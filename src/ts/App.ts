@@ -10,7 +10,8 @@ export default function App() {
         Switch(),
         MultipleChoice({
             name: "lang",
-            chosen: van.state(null),
+            chosen: van.state("html"),
+            disabled: true,
         },
             MultipleChoiceEntry({
                 id: "lang-html",
@@ -30,6 +31,7 @@ export default function App() {
         MultipleChoice({
             name: "ab",
             chosen: van.state(null),
+            disabled: false,
         },
             MultipleChoiceEntry({
                 id: "iscorrect-correct",
