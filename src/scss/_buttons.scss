@@ -12,7 +12,7 @@
     width: 100%;
     cursor: pointer;
 
-    &:hover {
+    &:hover, &:focus {
         background-color: colors.$primary-light;
     }
 }
@@ -35,8 +35,6 @@
         height: 28px;
         border-radius: 9999px;
 
-
-
         div.switch-circle {
             position: relative;
             width: 20px;
@@ -47,12 +45,17 @@
             transition: left 0.3s;
             left: 0;
         }
-
-
     }
 
     input[type="checkbox"] {
-        display: none;
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    &:has(input[type="checkbox"]:focus) div.switch-look{
+        background-color: colors.$primary-light;
     }
 
     input[type="checkbox"]:checked+div.switch-look>div.switch-circle {
@@ -94,7 +97,7 @@
             @include typography.hs;
         }
 
-        &:hover {
+        &:hover, &:focus {
             div.multiple-choice-entry-letter {
                 color: colors.$primary;
                 background-color: colors.$primary-lighter;
@@ -129,7 +132,9 @@
         }
 
         input[type="radio"] {
-            display: none;
+            opacity: 0;
+            width: 0;
+            height: 0;
         }
     }
 }
