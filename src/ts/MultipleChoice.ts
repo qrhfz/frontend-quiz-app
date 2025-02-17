@@ -1,10 +1,24 @@
 import van, { State } from "vanjs-core";
 const { div, input, label } = van.tags
 
-export function MultipleChoice(params: {
+type MultipleChoiceProps = {
     name: string,
-    chosen: State<string | null>
-}, ...entries: HTMLLabelElement[]) {
+    chosen: State<string | null>,
+}
+
+export function MultipleChoice({
+    name,
+    chosen }: MultipleChoiceProps,
+    ...entries: HTMLLabelElement[]) {
+
+    entries.forEach((e) => {
+        const input = e.querySelector('input[type="radio"]');
+
+        if (!(input instanceof HTMLInputElement)) return;
+
+        input.name = name;
+    })
+
     const el = div({
         class: "multiple-choice",
         onchange: (ev) => {
@@ -12,10 +26,10 @@ export function MultipleChoice(params: {
             if (
                 input instanceof HTMLInputElement &&
                 input.type === "radio" &&
-                input.name === params.name &&
+                input.name === name &&
                 input.checked
             ) {
-                params.chosen.val = input.value
+                chosen.val = input.value
             }
         }
     },
@@ -27,18 +41,16 @@ export function MultipleChoice(params: {
 export function MultipleChoiceEntry(
     params: {
         id: string,
-        name: string
         value: string,
         correct?: boolean,
     },
     ...children: HTMLElement[]
 ) {
-    const { id, name, value, correct } = params;
+    const { id, value, correct } = params;
     const radio = input({
         id: id,
         type: "radio",
-        name: name,
-        value: value
+        value: value,
     });
 
     const labelClasses = ["multiple-choice-entry"]

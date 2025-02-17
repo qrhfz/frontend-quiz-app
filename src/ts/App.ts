@@ -10,10 +10,9 @@ export default function App() {
         Switch(),
         MultipleChoice({
             name: "lang",
-            chosen: van.state(null)
+            chosen: van.state(null),
         },
             MultipleChoiceEntry({
-                name: "lang",
                 id: "lang-html",
                 value: "html",
             },
@@ -21,7 +20,6 @@ export default function App() {
                 div("HTML")
             ),
             MultipleChoiceEntry({
-                name: "lang",
                 id: "lang-css",
                 value: "css",
             },
@@ -31,10 +29,9 @@ export default function App() {
         ),
         MultipleChoice({
             name: "ab",
-            chosen: van.state(null)
+            chosen: van.state(null),
         },
             MultipleChoiceEntry({
-                name: "iscorrect",
                 id: "iscorrect-correct",
                 value: "correct",
                 correct: true
@@ -43,7 +40,6 @@ export default function App() {
                 div("correct")
             ),
             MultipleChoiceEntry({
-                name: "iscorrect",
                 id: "iscorrect-incorrect",
                 value: "incorrect",
                 correct: false,
