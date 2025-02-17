@@ -12,18 +12,9 @@
     width: 100%;
     cursor: pointer;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         background-color: colors.$primary-light;
-    }
-}
-
-@keyframes switchAnim {
-    from {
-        left: 0;
-    }
-
-    to {
-        left: 20px;
     }
 }
 
@@ -54,7 +45,7 @@
         height: 0;
     }
 
-    &:has(input[type="checkbox"]:focus) div.switch-look{
+    &:has(input[type="checkbox"]:focus) div.switch-look {
         background-color: colors.$primary-light;
     }
 
@@ -97,7 +88,8 @@
             @include typography.hs;
         }
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             div.multiple-choice-entry-letter {
                 color: colors.$primary;
                 background-color: colors.$primary-lighter;
