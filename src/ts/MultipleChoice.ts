@@ -46,30 +46,45 @@ export function MultipleChoice({
 }
 
 export function MultipleChoiceEntry(
-    params: {
+    { id, value }: {
         id: string,
         value: string,
-        status: "correct" | "incorrect" | "unknown",
     },
     ...children: HTMLElement[]
 ) {
-    const { value, status } = params;
-    const radio = input({
-        type: "radio",
-        value: value,
-    });
 
-    const labelClasses = ["multiple-choice-entry"]
-    if (status === "correct") {
-        labelClasses.push("correct");
-    } else if (status === "incorrect") {
-        labelClasses.push("incorrect");
-    }
-
-    return label({
-        class: labelClasses.join(" "),
-    },
-        radio,
+    return label({ id },
+        input({
+            type: "radio",
+            value: value,
+        }),
         ...children
     )
+}
+
+export function QuizAnswer({ id, status, letter, text }: {
+    id: string,
+    status: "correct" | "incorrect" | "unknown",
+    letter: string,
+    text: string
+}) {
+
+    const entryClasses = ["multiple-choice-entry"]
+    if (status === "correct") {
+        entryClasses.push("correct");
+    } else if (status === "incorrect") {
+        entryClasses.push("incorrect");
+    }
+
+    const el = MultipleChoiceEntry({
+        id,
+        value: text,
+    },
+        div({ class: "multiple-choice-entry-letter" }, letter),
+        div(text)
+    )
+
+    el.classList.add(...entryClasses);
+
+    return el;
 }

@@ -1,6 +1,6 @@
 import van from "vanjs-core";
 import { Switch } from "./Switch";
-import { MultipleChoice, MultipleChoiceEntry } from "./MultipleChoice"
+import { MultipleChoice, QuizAnswer } from "./MultipleChoice"
 
 const { div, span, button } = van.tags
 
@@ -13,66 +13,54 @@ export default function App() {
             chosen: van.state("html"),
             disabled: false,
         },
-            MultipleChoiceEntry({
+            QuizAnswer({
                 id: "lang-html",
-                value: "html",
                 status: "unknown",
-            },
-                div({ class: "multiple-choice-entry-letter" }, "A"),
-                div("HTML")
-            ),
-            MultipleChoiceEntry({
+                letter: "A",
+                text: "HTML"
+            }),
+            QuizAnswer({
                 id: "lang-css",
-                value: "css",
                 status: "unknown",
-            },
-                div({ class: "multiple-choice-entry-letter" }, "B"),
-                div("CSS")
-            )
+                letter: "B",
+                text: "CSS"
+            }),
         ),
         MultipleChoice({
             name: "qwerty",
-            chosen: van.state("b"),
+            chosen: van.state("Picked Incorrectly"),
             disabled: true,
         },
-            MultipleChoiceEntry({
+            QuizAnswer({
                 id: "qwerty-a",
-                value: "a",
                 status: "correct",
-            },
-                div({ class: "multiple-choice-entry-letter" }, "A"),
-                div("Correct Answer")
-            ),
-            MultipleChoiceEntry({
+                letter: "A",
+                text: "Correct Answer"
+            }),
+            QuizAnswer({
                 id: "qwerty-b",
-                value: "b",
                 status: "incorrect",
-            },
-                div({ class: "multiple-choice-entry-letter" }, "B"),
-                div("Picked Incorrectly")
-            )
+                letter: "B",
+                text: "Picked Incorrectly"
+            })
         ),
         MultipleChoice({
             name: "asdf",
-            chosen: van.state("a"),
+            chosen: van.state("Picked Correctly"),
             disabled: true,
         },
-            MultipleChoiceEntry({
+            QuizAnswer({
                 id: "asdf-a",
-                value: "a",
                 status: "correct",
-            },
-                div({ class: "multiple-choice-entry-letter" }, "A"),
-                div("Picked Correcly")
-            ),
-            MultipleChoiceEntry({
+                letter: "A",
+                text: "Picked Correctly"
+            }),
+            QuizAnswer({
                 id: "asdf-b",
-                value: "b",
                 status: "incorrect",
-            },
-                div({ class: "multiple-choice-entry-letter" }, "B"),
-                div("Wrong answer")
-            )
+                letter: "B",
+                text: "Wrong answer"
+            })
         )
     )
 }
