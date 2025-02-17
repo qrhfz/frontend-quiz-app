@@ -46,9 +46,8 @@ export function MultipleChoiceEntry(
     },
     ...children: HTMLElement[]
 ) {
-    const { id, value, correct } = params;
+    const { value, correct } = params;
     const radio = input({
-        id: id,
         type: "radio",
         value: value,
     });
@@ -61,11 +60,7 @@ export function MultipleChoiceEntry(
     }
 
     return label({
-        for: `#${id}`,
         class: labelClasses.join(" "),
-        onclick: () => {
-            radio.checked = true;
-        }
     },
         radio,
         ...children
