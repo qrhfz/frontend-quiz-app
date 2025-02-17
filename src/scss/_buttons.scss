@@ -78,6 +78,8 @@
         background-color: colors.$neutral-0;
         border: 3px solid transparent;
         border-radius: 24px;
+        cursor: pointer;
+        user-select: none;
 
         div.multiple-choice-entry-letter {
             width: 56px;
@@ -129,9 +131,5 @@
         input[type="radio"] {
             display: none;
         }
-
-
-
     }
-
 }
