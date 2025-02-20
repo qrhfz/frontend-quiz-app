@@ -1,6 +1,7 @@
 @use "typography";
 @use "colors";
 @use "sass:color";
+@use "components";
 
 .btn-primary {
     @include typography.hs;
@@ -65,18 +66,11 @@
     gap: 24px;
 
     label.multiple-choice-entry {
-        display: flex;
-        align-items: center;
-        gap: 32px;
-        padding-block: 18px;
-        padding-inline: 20px;
-        filter: drop-shadow(0 16px 40px #{color.change(#8FA0C1, $alpha:14%)});
+        @include components.list-tile;
 
         @include typography.hs;
-        color: colors.$neutral-900;
         background-color: colors.$neutral-0;
         border: 3px solid transparent;
-        border-radius: 24px;
         cursor: pointer;
         user-select: none;
 
