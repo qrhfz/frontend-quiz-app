@@ -1,3 +1,7 @@
 @use "colors";
 @use "reset";
 @use "buttons";
+
+body {
+    background-color: colors.$neutral-50;
+}
