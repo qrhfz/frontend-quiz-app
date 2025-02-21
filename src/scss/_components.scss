@@ -15,3 +15,8 @@
 .list-tile {
     @include list-tile;
 }
+
+.container {
+    max-width: 1160px;
+    margin-inline: auto;
+}

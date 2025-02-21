@@ -145,3 +145,14 @@
         }
     }
 }
+
+.vertical-menu {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .menu-item {
+        @include components.list-tile;
+    }
+}
